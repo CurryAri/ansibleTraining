@@ -1,37 +1,8 @@
 ---
 - name: publish tompencil html page with nginx
   hosts: webservers
-  tasks:
-    - name: install nginx
-      yum:
-        name: nginx
-        state: installed
-        update_cache: true
-
-    - name: copy html page
-      copy:
-        src: "roles/files/{{ item }}"
-        dest: /usr/share/nginx/html
-      with_items:
-        - tompencil.jpeg
-        - index3.html
-
-    - name: copy nginx.conf
-      copy:
-         src: roles/files/nginx.conf
-         dest: /etc/nginx/nginx.conf 
-
-    - name: enable and start nginx service
-      systemd:
-        name: nginx
-        state: restarted 
-        enabled: yes
-    
-        #  handlers:
-        #    - name: reload nginx
-        #      service:
-        #        name: nginx
-        #        state: reloaded
+  roles:
+      - nginx
 ...
 
 

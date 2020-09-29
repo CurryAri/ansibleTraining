@@ -19,6 +19,7 @@
 
 [webservers]
 veronica
+nicolas
 ## alpha.example.org
 ## beta.example.org
 ## 192.168.1.100
