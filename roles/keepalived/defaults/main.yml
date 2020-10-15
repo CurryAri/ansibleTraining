@@ -1,0 +1,22 @@
+notification_email_from: 'root'
+
+smtp_server: 127.0.0.1
+
+smtp_connect_timeout: 30
+
+virtual_router_id: 51
+
+vip: '192.168.122.16/24'
+
+auth_type: 'PASS'
+pass: '1111'
+
+node_name: "{{ inventory_hostname }}"
+
+node_state:
+  nicolas: 'BACKUP'
+  veronica: 'MASTER'
+
+node_priority:
+  nicolas: 100
+  veronica: 101
