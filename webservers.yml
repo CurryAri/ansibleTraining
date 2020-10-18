@@ -1,9 +1,8 @@
 ---
-- name: publish tompencil html page with nginx
-  hosts: webservers
+- hosts: webservers
   roles:
-      - {role: 'nginx', tags: 'nginx'}
-      - {role: 'keepalived', tags: 'kad'}
+      - role: 'nginx'
+      - role: 'keepalived'
 ...
 
 
