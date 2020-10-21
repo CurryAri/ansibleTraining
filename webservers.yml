@@ -1,8 +1,9 @@
 ---
 - hosts: webservers
   roles:
-      - role: 'nginx'
-      - role: 'keepalived'
+      - nginx
+      - keepalived
+      - docker_host
 ...
 
 

@@ -1,0 +1,6 @@
+defaults:
+  host: unix://var/run/docker.sock
+
+hosts:
+  - host: tcp://192.168.122.167:2376
+  - host: tcp://192.168.122.9:2376

@@ -1,0 +1,43 @@
+#vars_prompt:
+#
+#   - name: containers_amount
+#     prompt: "How many containers do you want to create today? "
+#     private: no
+- name: install required rpms
+  yum:
+    name: "{{ rpms }}"
+    state: installed
+    update_cache: true
+
+- name: install required python packages
+  pip:
+    name: "{{ pkgs }}"
+    state: latest
+
+- name: configure daemon.json
+  template:
+    src: templates/daemon.json.j2
+    dest: /etc/docker/daemon.json
+  
+- name: enable and ensure docker is running
+  systemd:
+    name: docker
+    state: restarted
+    enabled: yes
+
+- name: pull default docker image
+  community.general.docker_image:
+    name: "{{ default_container_image }}"
+    source: pull
+
+- name: create default containers
+  community.general.docker_container:
+    name: "{{ default_container_name }}{{ item }}"
+    image: "{{default_container_image }}"
+    command: "{{ default_container_command }}"
+    recreate: yes
+    interactive: yes
+    tty: yes
+    auto_remove: yes
+    state: started
+  with_sequence: count={{ containers_amount }}
