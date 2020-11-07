@@ -1,0 +1,4 @@
+{
+"debug": true,
+"hosts": ["tcp://192.168.122.9:2376", "unix:///var/run/docker.sock"]
+}

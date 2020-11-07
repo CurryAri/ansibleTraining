@@ -1,0 +1,8 @@
+default_container_name: 'dockie'
+default_container_image: 'centos:7.8.2003'
+default_container_command: '/bin/bash'
+rpms:
+  - python2-pip
+  - docker
+pkgs:
+  - docker
