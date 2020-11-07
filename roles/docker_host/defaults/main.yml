@@ -1,6 +1,8 @@
 default_container_name: 'dockie'
 default_container_image: 'centos:7.8.2003'
 default_container_command: '/bin/bash'
+default_host_ip: "{{ ansible_default_ipv4.address }}"
+default_docker_port: '2376'
 rpms:
   - python2-pip
   - docker
