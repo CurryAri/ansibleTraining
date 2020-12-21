@@ -1,3 +1,8 @@
-[webservers]
-veronica
-nicolas
+#[webservers]
+all:
+  hosts:
+  children:
+    webservers:
+      hosts:
+        veronica:
+        nicolas:
